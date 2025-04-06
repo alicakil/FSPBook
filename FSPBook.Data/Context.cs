@@ -2,18 +2,15 @@
 using Microsoft.EntityFrameworkCore;
 
 namespace FSPBook.Data;
-public class Context : DbContext
+public class Context(DbContextOptions<Context> options) : DbContext(options)
 {
-    public virtual DbSet<Profile> Profile { get; set; }
-    public virtual DbSet<Post> Post { get; set; }
-
-    public Context(DbContextOptions<Context> options)
-        : base(options)
-    {
-            
-    }
-
+    public virtual DbSet<Profile> Profiles { get; set; }
+    public virtual DbSet<Post> Posts { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Profile>()
+            .HasMany(p => p.Posts)
+            .WithOne(p => p.Author)
+            .HasForeignKey(p => p.AuthorId);
     }
 }
