@@ -12,6 +12,8 @@ delegating business logic to dedicated services.
 - **Post Management:** Authors can create, edit, and delete posts.
 - **Time-Aware Posts:** Utilizing `DateTimeOffset` to capture post times relative to different time zones.
 - **Responsive Design:** Built to work seamlessly on desktops and mobile devices.
+- Rate limiter feature to prefent band limiting attacks
+- Caching News API to protect limit rating for API key (cost optimization), and for app performance
 
 ## Project Structure
 
