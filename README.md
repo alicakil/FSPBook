@@ -6,6 +6,10 @@ It allows authors to write posts which are then displayed to all visitors.
 The application has been designed with scalability and maintainability in mind, 
 delegating business logic to dedicated services.
 
+## Quick Demo
+
+![FSPBook Demo](fspbook.gif)
+
 ## Features
 
 - **User Management:** Create and manage author profiles.

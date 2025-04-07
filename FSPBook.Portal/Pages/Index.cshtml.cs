@@ -14,7 +14,7 @@ public class IndexModel(ILogger<IndexModel> logger, Context dbContext, NewsServi
 
     public List<Post> Posts { get; set; }
     public int CurrentPage { get; set; } = 1;
-    public int PageSize { get; set; } = 10;
+    public int PageSize { get; set; } = 2;
     public int TotalPosts { get; set; }
 
     public async Task OnGetAsync(int? pageNumber)
