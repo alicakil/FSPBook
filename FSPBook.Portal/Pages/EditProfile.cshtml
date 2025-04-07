@@ -1,0 +1,67 @@
+﻿@page "{id:int}"
+@model FSPBook.Portal.Pages.EditProfileModel
+@{
+    ViewData["Title"] = "Edit Profile";
+}
+
+<div class="text-center">
+    <h1>Edit Profile</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <form method="post">
+            <input type="hidden" asp-for="ProfileData.Id" />
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3>Profile Details</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group mb-3">
+                        <label asp-for="ProfileData.FirstName">First Name</label>
+                        <input asp-for="ProfileData.FirstName" class="form-control" />
+                        <span asp-validation-for="ProfileData.FirstName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="ProfileData.LastName">Last Name</label>
+                        <input asp-for="ProfileData.LastName" class="form-control" />
+                        <span asp-validation-for="ProfileData.LastName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="ProfileData.JobTitle">Job Title</label>
+                        <input asp-for="ProfileData.JobTitle" class="form-control" />
+                        <span asp-validation-for="ProfileData.JobTitle" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <a asp-page="/ProfileDetail" asp-route-id="@Model.ProfileData.Id" class="btn btn-outline-secondary">Cancel</a>
+                </div>
+            </div>
+        </form>
+
+        @if (Model.Success)
+        {
+            <div class="alert alert-success" id="successMessage">
+                Profile updated successfully!
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            setTimeout(function () {
+                let successMessage = document.getElementById('successMessage');
+                if (successMessage) {
+                    successMessage.style.display = 'none';
+                }
+            }, 5000);
+        });
+    </script>
+}

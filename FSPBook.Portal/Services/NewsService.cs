@@ -38,7 +38,7 @@ public class NewsService
             return newsResponse?.Data ?? [];
         }
 
-        return new List<NewsArticle>();
+        return [];
     }
     private class NewsApiResponse
     {

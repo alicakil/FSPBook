@@ -16,7 +16,7 @@
             {
                 <div class="card mb-3">
                     <div class="card-header">
-                        <h5><a asp-page="/Profile" asp-route-id="@post.AuthorId">@post.Author.FullName</a></h5>
+                        <h5><a asp-page="/ProfileDetail" asp-route-id="@post.AuthorId">@post.Author.FullName</a></h5>
                         <small class="text-muted">Posted on @post.DateTimePosted.ToString("MMM dd, yyyy") at @post.DateTimePosted.ToString("hh:mm tt")</small>
                     </div>
                     <div class="card-body">

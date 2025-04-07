@@ -1,0 +1,30 @@
+﻿@page
+@model FSPBook.Portal.Pages.ProfileModel
+@{
+    ViewData["Title"] = "All Profiles";
+}
+
+<div class="text-center mb-4">
+    <h1 class="display-4">All Profiles</h1>
+</div>
+
+<div class="row">
+    @foreach (var profile in Model.Profiles)
+    {
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h3>@profile.FullName</h3>
+                </div>
+                <div class="card-body">
+                    <p><strong>Job Title:</strong> @profile.JobTitle</p>
+                    <p><strong>Posts:</strong> @profile.Posts.Count</p>
+                </div>
+                <div class="card-footer">
+                    <a asp-page="/ProfileDetail" asp-route-id="@profile.Id" class="btn btn-primary">View Profile</a>
+                    <a asp-page="/EditProfile" asp-route-id="@profile.Id" class="btn btn-secondary">Edit Profile</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,5 +1,5 @@
 ﻿@page "{id:int}"
-@model FSPBook.Portal.Pages.ProfileModel
+@model FSPBook.Portal.Pages.ProfileDetailModel
 @{
     ViewData["Title"] = Model.UserProfile?.FullName ?? "Profile";
 }
@@ -14,6 +14,10 @@
                 </div>
                 <div class="card-body">
                     <p><strong>Job Title:</strong> @Model.UserProfile.JobTitle</p>
+                </div>
+                <div class="card-footer">
+                    <a asp-page="/EditProfile" asp-route-id="@Model.UserProfile.Id" class="btn btn-secondary">Edit Profile</a>
+                    <a asp-page="/Profile" class="btn btn-outline-primary">Back to All Profiles</a>
                 </div>
             </div>
 

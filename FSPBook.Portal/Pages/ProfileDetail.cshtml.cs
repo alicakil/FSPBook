@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace FSPBook.Portal.Pages;
-public class ProfileModel(Context context) : PageModel 
+public class ProfileDetailModel(Context context) : PageModel
 {
     public Profile UserProfile { get; set; }
     public List<Post> Posts { get; set; }
