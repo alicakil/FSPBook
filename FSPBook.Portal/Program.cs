@@ -1,5 +1,5 @@
 using FSPBook.Data;
-using FSPBook.Portal.Services;
+using FSPBook.Portal.Services.NewsService;
 using FSPBook.Portal.Utilities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,6 +14,7 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<NewsService>();
+builder.Services.AddMemoryCache();
 
 var app = builder.Build();
 

@@ -1,4 +1,4 @@
-﻿using FSPBook.Portal.Services;
+﻿using FSPBook.Portal.Services.NewsService;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
