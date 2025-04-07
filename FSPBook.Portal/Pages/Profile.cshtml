@@ -1,0 +1,48 @@
+﻿@page "{id:int}"
+@model FSPBook.Portal.Pages.ProfileModel
+@{
+    ViewData["Title"] = Model.UserProfile?.FullName ?? "Profile";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        @if (Model.UserProfile != null)
+        {
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h2>@Model.UserProfile.FullName</h2>
+                </div>
+                <div class="card-body">
+                    <p><strong>Job Title:</strong> @Model.UserProfile.JobTitle</p>
+                </div>
+            </div>
+
+            <h3>Posts by @Model.UserProfile.FirstName</h3>
+
+            @if (Model.Posts != null && Model.Posts.Any())
+            {
+                @foreach (var post in Model.Posts)
+                {
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <small class="text-muted">Posted on @post.DateTimePosted.ToString("MMM dd, yyyy") at @post.DateTimePosted.ToString("hh:mm tt")</small>
+                        </div>
+                        <div class="card-body">
+                            <p>@post.Content</p>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>No posts available for this user.</p>
+            }
+        }
+        else
+        {
+            <div class="alert alert-warning">
+                Profile not found.
+            </div>
+        }
+    </div>
+</div>

@@ -1,38 +1,49 @@
-﻿# FSPBook
+## Overview
 
-## Intro
+This application is a basic blog platform built with .NET 8.0 Razor Pages
+based on the instructions described here [readme_instructions.md](readme_instructions.md) file.
+It allows authors to write posts which are then displayed to all visitors. 
+The application has been designed with scalability and maintainability in mind, 
+delegating business logic to dedicated services.
 
-We have put this scenario together to have the opportunity to see how you might deal with a real-world coding task. **At your interview we would like you present your solution (via screen share) to the tasks**, as you would do in a sprint retrospective, and show us anything of note in your code. There are no right or wrong answers, the aim is to see the approaches and patterns you use to solve the problem and for us to discuss the pros and cons during the interview. We will expect you to present for 20-30 minutes with questions along the way from us.
+## Features
 
-Please send back your solution at least half a day before your interview so we can review and prepare questions. When you do, please avoid include the node_modules folder as it unnecessarily bloats the zip.
+- **User Management:** Create and manage author profiles.
+- **Post Management:** Authors can create, edit, and delete posts.
+- **Time-Aware Posts:** Utilizing `DateTimeOffset` to capture post times relative to different time zones.
+- **Responsive Design:** Built to work seamlessly on desktops and mobile devices.
 
-Do make sure you read through everything here before you get started. 
+## Project Structure
 
-## Prerequisites
-You will need to install the following to build and run the code in this scenario:
-- .NET 6.0 (https://dotnet.microsoft.com/en-us/).
-- Visual Studio 2022 (Community or higher) or Visual Studio Code.
-- (Optional) In Visual Studio, you might like the Markdown Editor extension to get a Markdown preview for this file.
+- **Pages/**: Contains Razor Pages (.cshtml files) and their associated PageModel classes. This is where UI components and page-level logic reside.
+- **wwwroot/**: Contains static files such as CSS, JavaScript, and images.
+- **Models/**: Contains the data models (e.g., Post, Profile) used throughout the application.
+- **Services/**: Contains the business logic and service classes that handle operations like user authentication, post creation, and validation.
+- **Data/**: Contains data access logic and the database context for persistence.
 
-## Scenario
-FSP think Yammer is overcomplicated and have decided to implement their own, simple social network called FSPBook. We've made a start but need your help to add some more features.
+## Business Logic
 
-## Tasks
-1. On the homepage, display all Posts in reverse date order, showing the author's name, date and time posted and the post content. On page load, don't show more than ten posts at once. It is up to you how you allow the user to see more posts. Remember that we are not testing design skills, but some styling should be applied so the content is clear and readable.
+The core business logic of the application revolves around managing author profiles and blog posts. 
 
-2. We also want a feed of technology news on our site. Add a feed from https://www.thenewsapi.com/ with the most recent 5 technology headlines. It is up to you if you also want to limit the news sources. This should be displayed as a sidebar on the home page. You will need to create an account to get an API token but the service is free for development. Feel free to use any appropriate libraries you need.
+- **Post Handling:**  
+  - Posts contain content, a timestamp (`DateTimeOffset`) to support multiple time zones, and are linked to an author.
+  - Business rules ensure that posts are correctly created, edited, and displayed in proper order.
 
-3. Create a simple profile page to display a given profile. This should simply be a page that displays the user's name, job title and shows a feed of their latest posts in reverse date order. Where there are posts on the homepage, add hyperlinks to the author names that lead to the appropriate profile page.
+- **Profile Management:**  
+  - Each author has a profile containing essential information (first name, last name, job title).
+  - Additional computed properties, like the author's full name, are used to enhance display logic.
 
-4. Add at least one unit test. This can be testing any appropriate part of the application.
+- **Service Layer:**  
+  - All interactions between the user interface and the data layer are mediated by services. This encapsulation ensures that the Razor Pages remain clean and focused solely on presentation logic.
+  - Error handling, input validation, and domain-specific rules are implemented within these services.
 
-## General guidance
-- The project uses a Razor Pages template. If you'd prefer to use MVC, feel free to switch the template.
-- The application uses EntityFramework with a in-memory database to avoid you needing to set up a SQL server. Everytime the execution is stopped, all the data you added will disappear, so you do not have to worry about removing your tests later. Some initial data will have been seeded. This provider does not require migrations. 
-- For this application to be complete there would need to be an account and authentication system. This is not in place (and we do not expect you to add it) to make development easier for the purposes of these tasks.
-- There is a Create Post page where you can create posts on behalf of any of the users in the system, there is a link in the header.
-- We don't expect you to spend lots of time making this application look beautiful. **We are interested in *usability*, but not *design***.
-- If we have not specified any implementation details, it is up to you to decide how to go about it.
-- You are free to use any libraries that you need.
-- We will be looking at your coding style. You may want to install something that will enforce consistent coding style.
-- We will discuss your solutions and explore how you have gone about the tasks in your interview.
+## Getting Started
+
+1. **Prerequisites:**
+   - .NET 8 SDK
+   - Visual Studio 2022
+  
+2. **Build and Run:**
+   - Open the solution in Visual Studio 2022.
+   - Build the project.
+   - Run the application and navigate to the default landing page.

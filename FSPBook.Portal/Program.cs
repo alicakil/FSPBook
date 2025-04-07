@@ -1,4 +1,5 @@
 using FSPBook.Data;
+using FSPBook.Portal.Services;
 using FSPBook.Portal.Utilities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<Context>(options => options.UseInMemoryDatabase("FSPBookDataBase"));
 builder.Services.AddRazorPages();
+
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<NewsService>();
 
 var app = builder.Build();
 
