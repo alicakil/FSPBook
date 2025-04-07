@@ -68,7 +68,7 @@ public class PostModelTests
         // Act
         var result = await pageModel.OnGetAsync(1);
 
-        // Assert using FluentAssertions
+        // Assert
         pageModel.Post.Should().NotBeNull();
         pageModel.Post!.Author.Should().NotBeNull();
         result.Should().BeOfType<PageResult>();
@@ -84,7 +84,7 @@ public class PostModelTests
         // Act
         var result = await pageModel.OnGetAsync(99);
 
-        // Assert using FluentAssertions
+        // Assert
         pageModel.Post.Should().BeNull();
         result.Should().BeOfType<NotFoundResult>();
     }
@@ -118,7 +118,7 @@ public class PostModelTests
         // Act
         var result = await pageModel.OnGetAsync(2);
 
-        // Assert using FluentAssertions
+        // Assert
         pageModel.Post.Should().NotBeNull();
         pageModel.Post!.Content.Should().Be("Detailed post content");
         pageModel.Post!.Author.Should().NotBeNull();

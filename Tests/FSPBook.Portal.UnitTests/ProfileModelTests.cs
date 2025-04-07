@@ -56,7 +56,7 @@ namespace FSPBook.Portal.UnitTests
             // Act
             var result = await pageModel.OnGetAsync(1);
 
-            // Assert using FluentAssertions
+            // Assert
             pageModel.Profile.Should().NotBeNull();
             result.Should().BeOfType<PageResult>();
         }
@@ -71,7 +71,7 @@ namespace FSPBook.Portal.UnitTests
             // Act
             var result = await pageModel.OnGetAsync(99);
 
-            // Assert using FluentAssertions
+            // Assert
             pageModel.Profile.Should().BeNull();
             result.Should().BeOfType<NotFoundResult>();
         }
@@ -106,7 +106,7 @@ namespace FSPBook.Portal.UnitTests
             // Act
             var result = await pageModel.OnGetAsync(1);
 
-            // Assert using FluentAssertions
+            // Assert
             pageModel.Profile.Should().NotBeNull();
             pageModel.Profile!.Posts.Should().NotBeNull().And.NotBeEmpty();
             result.Should().BeOfType<PageResult>();
