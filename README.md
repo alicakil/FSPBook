@@ -19,6 +19,14 @@ delegating business logic to dedicated services.
 - Rate limiter feature to prefent band limiting attacks
 - Caching News API to protect limit rating for API key (cost optimization), and for app performance
 
+## Configuration
+
+The news panel uses [TheNewsAPI](https://www.thenewsapi.com/). The key is not stored in the repository; set it as an environment variable before running:
+
+```bash
+export NewsApi__ApiKey=<your-key>
+```
+
 ## Project Structure
 
 - **Pages/**: Contains Razor Pages (.cshtml files) and their associated PageModel classes. This is where UI components and page-level logic reside.
